@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" th:fragment="parent(content, title, script)" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title th:text="${title}">Default Title</title>
+    
+    <link rel="stylesheet" href="/CSS/output.css" />
+    <link rel="stylesheet" href="/style.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-black dark:text-white pt-0 px-4 pb-4" >
+
+   
+    
+<div th:if="${loggedInUser != null}">
+    <div th:replace="user/user_navbar :: user-navbar"></div>
+</div>
+
+<div th:if="${loggedInUser != null}">
+    <div th:replace="user/sidebar :: side-bar"></div>
+</div>
+
+
+
+<div th:unless="${loggedInUser != null}">
+    <div th:replace="navbar :: navbar"></div>
+</div>
+
+  
+    <div th:replace="${content}">Default Content</div>
+
+    <div th:replace="${script}"></div>
+
+    
+    <script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

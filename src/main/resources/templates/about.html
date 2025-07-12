@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" 
+      th:replace="~{base :: parent(~{::#content}, ~{::title}, ~{::#scripts})}">
+<head>
+    <title th:fragment="title">About Page</title>
+</head>
+
+<body>
+
+    <div id="content" th:fragment="content">
+        <h3>Welcome to about page</h3>
+    </div>
+
+    <div id="scripts" th:fragment="script">
+        <script>
+            console.log("Script loaded for About Page");
+        </script>
+    </div>
+</body>
+</html>
